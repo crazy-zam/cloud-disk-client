@@ -1,0 +1,93 @@
+@import '../../../utils/colors';
+
+.uploader {
+  height: 500px;
+  width: 400px;
+  position: fixed;
+  background-color: @font-color;
+  bottom: 0;
+  right: 0;
+  padding: 20px;
+  border-radius: 12px;
+  overflow-y: auto;
+
+  &_header {
+    display: flex;
+    justify-content: space-between;
+    height: 25px;
+  }
+  &_title {
+    color: @background-color;
+    font-size: 1.2rem;
+  }
+  // &_close {
+  //   padding: 3px;
+  // }
+}
+.uploader-enter-active {
+  animation: uploader-enter 1000ms;
+}
+.uploader-exit-active {
+  animation: uploader-exit 1000ms;
+}
+@keyframes uploader-enter {
+  0% {
+    transform: translateY(100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes uploader-exit {
+  0% {
+    transform: translateY(0);
+  }
+  100% {
+    transform: translateY(100%);
+  }
+}
+
+.upload-file {
+  background-color: @background-color;
+  border-radius: 8px;
+  margin: 5px 0;
+  padding: 5px 10px;
+  &_header {
+    display: flex;
+    justify-content: space-between;
+  }
+  &_title {
+    width: 90%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  &_progress-bar {
+    height: 1rem;
+    border-radius: 8px;
+    background-color: @font-color;
+    display: flex;
+    margin: 3px 0;
+  }
+  &_upload-bar {
+    background-color: @green-color;
+    width: 0;
+    border-radius: 8px;
+  }
+  &_percent {
+    color: @background-color;
+    left: 50%;
+    position: absolute;
+  }
+}
+
+.upload-file_close,
+.uploader_close {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  &:hover {
+    cursor: pointer;
+    background-color: @red-color;
+    color: @background-color;
+  }
+}

@@ -1,0 +1,30 @@
+.navbar {
+  display: flex;
+  justify-content: center;
+  height: 50px;
+  background-color: white;
+  width: 100%;
+}
+.navbar_header {
+  margin-left: 10px;
+  font-size: 24px;
+  font-weight: 700;
+}
+.navbar_login {
+  margin-left: auto;
+  margin-right: 20px;
+}
+.navbar_search {
+  width: 300px;
+  margin-left: 20px;
+}
+.navbar_avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.container {
+  width: 1140px;
+  display: flex;
+  align-items: center;
+}

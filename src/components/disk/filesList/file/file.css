@@ -1,0 +1,78 @@
+.file {
+  margin: 10px 0;
+  border-bottom: solid 2px #566885;
+  display: grid;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+  align-items: center;
+}
+.file:hover {
+  transform: scale(1.02);
+}
+.file_img {
+  justify-self: center;
+}
+.file_name {
+  grid-column-start: 2;
+}
+.file_date {
+  grid-column-start: 5;
+  justify-self: center;
+}
+.file_size {
+  grid-column-start: 6;
+  justify-self: center;
+}
+.file_btn {
+  display: none;
+  background-color: #e9e6e6;
+  border: 2px dashed #566885;
+  border-radius: 5px;
+  height: 30px;
+  width: 100px;
+  align-self: center;
+  cursor: pointer;
+}
+.file:hover .file_download {
+  display: block;
+}
+.file:hover .file_delete {
+  display: block;
+}
+.file_download {
+  grid-column-start: 3;
+  justify-self: center;
+}
+.file_delete {
+  grid-column-start: 4;
+  justify-self: center;
+}
+.file_download:hover {
+  background-color: #6ccf75;
+  border: 2px dashed #566885;
+}
+.file_delete:hover {
+  background-color: #e63838;
+  color: #e9e6e6;
+  border: 2px dashed #566885;
+}
+.file-plate {
+  widows: 150px;
+  height: 150px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
+}
+.file-plate_img {
+  height: 100px;
+  width: 100px;
+}
+.file-plate_btns {
+  display: none;
+  cursor: pointer;
+  background-color: aqua;
+}
+.file-plate:hover .file-plate_btns {
+  display: flex;
+}

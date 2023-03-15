@@ -1,0 +1,49 @@
+.fileList {
+  margin: 20px 0;
+}
+.fileList_header {
+  display: grid;
+  grid-template-columns: 1fr 4fr repeat(4, 1fr);
+}
+.fileList_name {
+  grid-column-start: 2;
+}
+.fileList_date {
+  grid-column-start: 5;
+  justify-self: center;
+}
+.fileList_size {
+  grid-column-start: 6;
+  justify-self: center;
+}
+.filePlate {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 20px 0px;
+}
+.file-enter-active {
+  animation: file-enter 500ms forwards;
+}
+@keyframes file-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.file-exit-active {
+  animation: file-exit 500ms forwards;
+}
+@keyframes file-exit {
+  100% {
+    opacity: 0;
+    transform: translateX(-50%);
+  }
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
