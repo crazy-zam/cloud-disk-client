@@ -10,7 +10,6 @@ const Profile = () => {
   const dispatch = useDispatch();
   function uploadHandler(e) {
     const file = e.target.files[0];
-    console.log(file);
     dispatch(uploadAvatar(file));
   }
   const avatar = currentUser.avatar
