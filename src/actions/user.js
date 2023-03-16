@@ -41,7 +41,7 @@ export const auth = () => {
       dispatch(setUser(response.data.user));
       localStorage.setItem('token', response.data.token);
     } catch (e) {
-      alert(e.response.data.message);
+      alert(e.response?.data?.message);
       localStorage.removeItem('token');
     }
   };
@@ -57,7 +57,7 @@ export const uploadAvatar = (file) => {
       });
       dispatch(setUser(response.data));
     } catch (e) {
-      alert(e.response.data.message);
+      alert(e.response?.data?.message);
     }
   };
 };
