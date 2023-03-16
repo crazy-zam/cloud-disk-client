@@ -26,7 +26,6 @@ const File = ({ file }) => {
     e.stopPropagation();
     dispatch(deleteFileAction(file));
   }
-
   if (fileView === 'list') {
     return (
       <div className="file" onClick={() => openDirHandler(file)}>
