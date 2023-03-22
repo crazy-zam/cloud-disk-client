@@ -116,7 +116,10 @@ const Disk = () => {
           Create folder
         </button>
         <div className="disk_upload">
-          <label htmlFor="disk_upload-input" className="disk_upload-label">
+          <label
+            htmlFor="disk_upload-input"
+            className="disk_btn disk_upload-label"
+          >
             Upload file
           </label>
           <input
@@ -131,7 +134,7 @@ const Disk = () => {
         <input
           value={searchName}
           onChange={(e) => searchHandler(e)}
-          className="navbar_search"
+          className="disk_search"
           type="text"
           placeholder="Enter file name..."
         ></input>

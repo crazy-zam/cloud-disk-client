@@ -14,14 +14,11 @@
   margin-left: auto;
   margin-right: 20px;
 }
-.navbar_search {
-  width: 300px;
-  margin-left: 20px;
-}
 .navbar_avatar {
   width: 40px;
   height: 40px;
   border-radius: 50%;
+  object-fit: cover;
 }
 .container {
   width: 1140px;

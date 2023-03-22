@@ -12,6 +12,7 @@ import {
   showUploader,
 } from '../reducers/uploadReducer';
 import { API_URL } from '../config';
+import checkError from '../utils/errorCheck';
 
 export function getFilesAction(dirId, sort) {
   return async (dispatch) => {
@@ -30,7 +31,7 @@ export function getFilesAction(dirId, sort) {
       });
       dispatch(setFiles(response.data));
     } catch (e) {
-      alert(e.response?.data?.message);
+      checkError(e, dispatch);
     } finally {
       dispatch(hideLoader());
     }
@@ -48,7 +49,7 @@ export function getPathAction(dirId) {
 
       dispatch(setPath(response.data[0].path));
     } catch (e) {
-      alert(e.response?.data?.message);
+      checkError(e, dispatch);
     } finally {
       dispatch(hideLoader());
     }
@@ -71,7 +72,7 @@ export function createDirAction(dirId, name) {
       );
       dispatch(addFile(response.data));
     } catch (e) {
-      alert(e.response?.data?.message);
+      checkError(e, dispatch);
     }
   };
 }
@@ -108,24 +109,28 @@ export function uploadFileAction(file, dirId) {
       });
       dispatch(addFile(response.data));
     } catch (e) {
-      alert(e.response?.data?.message);
+      checkError(e, dispatch);
     }
   };
 }
 
-export async function downloadFileAction(file) {
-  const response = await fetch(`${API_URL}api/file/download?id=${file._id}`, {
-    headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
-  });
-  if (response.status === 200) {
-    const blob = await response.blob();
-    const downloadUrl = window.URL.createObjectURL(blob);
-    const link = document.createElement('a');
-    link.href = downloadUrl;
-    link.download = file.name;
-    document.body.appendChild(link);
-    link.click();
-    link.remove();
+export async function downloadFileAction(file, dispatch) {
+  try {
+    const response = await fetch(`${API_URL}api/file/download?id=${file._id}`, {
+      headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
+    });
+    if (response.status === 200) {
+      const blob = await response.blob();
+      const downloadUrl = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = downloadUrl;
+      link.download = file.name;
+      document.body.appendChild(link);
+      link.click();
+      link.remove();
+    }
+  } catch (e) {
+    checkError(e, dispatch);
   }
 }
 
@@ -136,9 +141,8 @@ export function deleteFileAction(file) {
         headers: { Authorization: `Bearer ${localStorage.getItem('token')}` },
       });
       dispatch(deleteFile(file._id));
-      // alert(response.data.message);
     } catch (e) {
-      alert(e.response?.data?.message);
+      checkError(e, dispatch);
     }
   };
 }
@@ -154,9 +158,8 @@ export function searchFileAction(search) {
         },
       );
       dispatch(setFiles(response.data));
-      // alert(response.data.message);
     } catch (e) {
-      alert(e?.response?.data?.message);
+      checkError(e, dispatch);
     } finally {
       dispatch(hideLoader());
     }

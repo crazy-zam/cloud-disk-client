@@ -4,6 +4,7 @@ import { deleteAvatar, uploadAvatar, deleteUser } from '../../actions/user';
 import avatarLogo from '../../assets/img/default-avatar.svg';
 import { API_URL } from '../../config';
 import sizeFormat from '../../utils/sizeFormat';
+import './profile.css';
 
 const Profile = () => {
   const currentUser = useSelector((state) => state.user.currentUser);
@@ -19,29 +20,49 @@ const Profile = () => {
   return (
     <div>
       <div className="profile-data">
-        <img src={avatar} alt="" className="profile-data-avatar" />
-        <div className="profile-data-avatar_btns">
-          <button onClick={() => dispatch(deleteUser())}>Delete User</button>
-          <button onClick={() => dispatch(deleteAvatar())}>
-            Delete Avatar
-          </button>
+        <img src={avatar} alt="" className="profile-data_avatar" />
+
+        <div className="profile-data_email">E-mail</div>
+        <div className="profile-data_email">{currentUser.email}</div>
+
+        <div className="profile-data_total">Total space</div>
+        <div className="profile-data_total">
+          {sizeFormat(currentUser.diskSpace)}
+        </div>
+
+        <div className="profile-data_used">Used space</div>
+        <div className="profile-data_used">
+          {sizeFormat(currentUser.usedSpace)}
+        </div>
+
+        <button
+          className="profile-data_avatar_delete"
+          onClick={() => dispatch(deleteAvatar())}
+        >
+          Delete Avatar
+        </button>
+        <div className="profile-data_avatar_upload">
+          <label
+            htmlFor="avatar_upload-input"
+            className="profile-data_avatar_upload-label"
+          >
+            Upload avatar
+          </label>
           <input
             accept="image/*"
             onChange={(e) => uploadHandler(e)}
             type="file"
-            placeholder="Upload avatar"
+            id="avatar_upload-input"
+            className="profile-data_avatar_upload-input"
           />
         </div>
-        <div className="profile-data-email">E-mail</div>
-        <div className="profile-data-email">{currentUser.email}</div>
-        <div className="profile-data-totalSpace">Total space</div>
-        <div className="profile-data-totalSpace">
-          {sizeFormat(currentUser.diskSpace)}
-        </div>
-        <div className="profile-data-usedSpace">Used space</div>
-        <div className="profile-data-usedSpace">
-          {sizeFormat(currentUser.usedSpace)}
-        </div>
+
+        <button
+          className="profile-data_delete"
+          onClick={() => dispatch(deleteUser())}
+        >
+          Delete User
+        </button>
       </div>
     </div>
   );

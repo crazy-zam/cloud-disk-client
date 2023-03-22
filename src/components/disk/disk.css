@@ -12,6 +12,8 @@
   border: 2px dashed #566885;
   border-radius: 5px;
   background-color: #e9e6e6;
+  font-size: 2em;
+  font: inherit;
   cursor: pointer;
   margin-right: 10px;
 }
@@ -28,6 +30,11 @@
   height: 20px;
   width: 100px;
   cursor: pointer;
+}
+.disk_search {
+  width: 300px;
+  margin-left: 20px;
+  font: inherit;
 }
 .disk_select_wrap {
   margin-left: auto;
@@ -99,6 +106,36 @@
 }
 .popup input {
   margin: 20px 0;
+}
+.popup_close {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+}
+.popup_close:hover {
+  cursor: pointer;
+  background-color: #e63838;
+  color: #e9e6e6;
+}
+.popup_create {
+  width: 100px;
+  height: 30px;
+  border: 2px dashed #566885;
+  border-radius: 5px;
+  background-color: #fff;
+  color: #566885;
+  cursor: pointer;
+  margin-right: 10px;
+}
+.popup_create:hover:enabled {
+  background-color: #6ccf75;
+  border: 2px dashed #566885;
+  color: #e9e6e6;
+}
+.popup_create:disabled {
+  cursor: not-allowed;
+  background-color: #e9e6e6;
+  color: #e63838;
 }
 .loader {
   display: flex;

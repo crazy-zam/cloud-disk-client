@@ -17,7 +17,10 @@ const Popup = () => {
     <div
       className="popup"
       style={{ display: popupDisplay }}
-      onClick={() => dispatch(setPopupDisplay('none'))}
+      onClick={() => {
+        dispatch(setPopupDisplay('none'));
+        setDirName('');
+      }}
     >
       <div
         className="popup_content"
@@ -27,7 +30,10 @@ const Popup = () => {
           <div className="popup_title">Create new folder</div>
           <button
             className="popup_close"
-            onClick={() => dispatch(setPopupDisplay('none'))}
+            onClick={() => {
+              dispatch(setPopupDisplay('none'));
+              setDirName('');
+            }}
           >
             X
           </button>
@@ -38,7 +44,11 @@ const Popup = () => {
           value={dirName}
           setValue={setDirName}
         ></Input>
-        <button className="popup_create" onClick={() => createHandler()}>
+        <button
+          disabled={dirName === '' ? true : false}
+          className="popup_create"
+          onClick={() => createHandler()}
+        >
           Create
         </button>
       </div>

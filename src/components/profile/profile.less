@@ -1,0 +1,107 @@
+@import '../../utils/colors.less';
+.profile-data {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 2fr 1fr;
+  width: 100%;
+  align-items: center;
+  height: 50vh;
+  background-color: white;
+  border-radius: 20px;
+  padding: 30px;
+  align-self: center;
+  margin-top: 300px;
+  &_avatar {
+    height: 35vh;
+    object-fit: cover;
+    width: 35vh;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    grid-row-start: 2;
+    grid-row-end: 6;
+    border-radius: 25px;
+    &_delete {
+      font-size: 1.5em;
+      grid-row-start: 5;
+      grid-column-start: 3;
+      display: block;
+      border: 2px dashed @font-color;
+      border-radius: 5px;
+      background-color: white;
+      padding: 5px 10px;
+      height: 40px;
+      width: 200px;
+      cursor: pointer;
+      margin-left: auto;
+      margin-right: auto;
+      text-align: center;
+      &:hover {
+        background-color: @red-color;
+        color: @background-color;
+        border: 2px dashed @font-color;
+      }
+    }
+    &_upload {
+      grid-row-start: 5;
+      grid-column-start: 2;
+      &-input {
+        display: none;
+      }
+      &-label {
+        font-size: 1.5em;
+        display: block;
+        border: 2px dashed @font-color;
+        border-radius: 5px;
+        padding: 5px 10px;
+        height: 40px;
+        width: 200px;
+        cursor: pointer;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        &:hover {
+          background-color: @green-color;
+          //  color: @background-color;
+          border: 2px dashed @font-color;
+        }
+      }
+    }
+  }
+
+  &_email,
+  &_total,
+  &_used {
+    font-size: 2em;
+    text-align: center;
+  }
+  &_email {
+    grid-row-start: 2;
+  }
+  &_total {
+    grid-row-start: 3;
+  }
+  &_used {
+    grid-row-start: 4;
+  }
+  &_delete {
+    font-size: 1.5em;
+    grid-row-start: 6;
+    grid-column-start: 3;
+    display: block;
+    border: 2px dashed @font-color;
+    border-radius: 5px;
+    padding: 5px 10px;
+    height: 40px;
+    width: 200px;
+    cursor: pointer;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    &:hover {
+      background-color: @red-color;
+      color: @background-color;
+      border: 2px dashed @font-color;
+    }
+  }
+}

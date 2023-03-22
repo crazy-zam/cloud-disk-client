@@ -1,4 +1,5 @@
 import axios from 'axios';
+
 import { setUser } from '../reducers/userReducer';
 import { API_URL } from '../config';
 import { logout } from '../reducers/userReducer';
@@ -9,10 +10,10 @@ export const registration = async (email, password) => {
       email,
       password,
     });
+
     alert(response.data.message);
   } catch (e) {
-    // console.log(e.response.data.message);
-    alert(e.response.data.message);
+    console.log(e.response?.data?.message);
   }
 };
 
@@ -26,8 +27,7 @@ export const login = (email, password) => {
       dispatch(setUser(response.data.user));
       localStorage.setItem('token', response.data.token);
     } catch (e) {
-      // console.log(e.response.data.message);
-      alert(e.response?.data?.message);
+      console.log(e.response?.data?.message);
     }
   };
 };
@@ -41,7 +41,7 @@ export const auth = () => {
       dispatch(setUser(response.data.user));
       localStorage.setItem('token', response.data.token);
     } catch (e) {
-      alert(e.response?.data?.message);
+      console.log(e.response?.data?.message);
       localStorage.removeItem('token');
     }
   };
@@ -57,7 +57,7 @@ export const uploadAvatar = (file) => {
       });
       dispatch(setUser(response.data));
     } catch (e) {
-      alert(e.response?.data?.message);
+      console.log(e.response?.data?.message);
     }
   };
 };
@@ -70,7 +70,7 @@ export const deleteAvatar = () => {
       });
       dispatch(setUser(response.data));
     } catch (e) {
-      alert(e.response.data.message);
+      console.log(e.response?.data?.message);
     }
   };
 };
@@ -84,7 +84,7 @@ export const deleteUser = () => {
       alert(response.data.message);
       dispatch(logout());
     } catch (e) {
-      alert(e.response.data.message);
+      console.log(e.response?.data?.messagee);
     }
   };
 };

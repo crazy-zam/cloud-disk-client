@@ -3,6 +3,7 @@ import './navbar.css';
 
 import { useDispatch, useSelector } from 'react-redux';
 import { logout } from '../../reducers/userReducer';
+import { hideUploader } from '../../reducers/uploadReducer';
 
 import Logo from '../../assets/img/navbar-logo.svg';
 import avatarLogo from '../../assets/img/default-avatar.svg';
@@ -39,7 +40,13 @@ const Navbar = () => {
         )}
 
         {isAuth && (
-          <div className="navbar_login" onClick={() => dispatch(logout())}>
+          <div
+            className="navbar_login"
+            onClick={() => {
+              dispatch(logout());
+              dispatch(hideUploader());
+            }}
+          >
             Logout
           </div>
         )}

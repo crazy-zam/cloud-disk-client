@@ -20,7 +20,7 @@ const File = ({ file }) => {
   }
   function downloadClickHandler(e) {
     e.stopPropagation();
-    downloadFileAction(file);
+    downloadFileAction(file, dispatch);
   }
   function deleteClickHandler(e) {
     e.stopPropagation();
